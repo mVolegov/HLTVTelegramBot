@@ -46,7 +46,7 @@ public class HLTVBot extends TelegramLongPollingBot {
 
             execute(sendMessage);
         } catch (IllegalArgumentException e) {
-            execute(new SendMessage(message.getChatId().toString(), "Я вас не понимаю"));
+            execute(new SendMessage(message.getChatId().toString(), BasicResponseMessageEnum.UNKNOWN_MESSAGE.getMessage()));
         }
     }
 

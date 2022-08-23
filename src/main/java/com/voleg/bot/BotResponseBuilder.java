@@ -4,9 +4,6 @@ import com.voleg.responsebuilder.ResponseBuilder;
 
 public class BotResponseBuilder {
 
-    private static final String WELCOME = "Hello";
-    private static final String UNKNOWN_COMMAND = "Unknown command";
-
     ResponseBuilder todayNewsResponseBuilder;
     ResponseBuilder teamRankingResponseBuilder;
     ResponseBuilder matchesResponseBuilder;
@@ -23,20 +20,18 @@ public class BotResponseBuilder {
     }
 
     public String makeResponse(String command) {
-        if (command.equals("/news")) {
+        if (command.equals(CommandEnum.GET_NEWS_FOR_TODAY.getButtonName())) {
             return todayNewsResponseBuilder.build();
-        } else if (command.equals("/team_ranking")) {
+        } else if (command.equals(CommandEnum.GET_TEAMS_RANKING.getButtonName())) {
             return teamRankingResponseBuilder.build();
-        } else if (command.equals("/matches")) {
+        } else if (command.equals(CommandEnum.GET_MATCHES_FOR_TODAY.getButtonName())) {
             return matchesResponseBuilder.build();
-        } else if (command.equals("/results")) {
+        } else if (command.equals(CommandEnum.GET_RESULTS_FOR_TODAY.getButtonName())) {
             return resultsResponseBuilder.build();
-        } else if (command.equals("/start")) {
-            return WELCOME;                                // ?
+        } else if (command.equals(CommandEnum.START.getButtonName())) {
+            return BasicResponseMessageEnum.WELCOME.getMessage();
         } else {
-            return UNKNOWN_COMMAND;
-//            return unknownCommandResponseBuilder.build();   // ?
-            // return "Unknown command";                    // ?
+            return BasicResponseMessageEnum.UNKNOWN_COMMAND.getMessage();
         }
     }
 }

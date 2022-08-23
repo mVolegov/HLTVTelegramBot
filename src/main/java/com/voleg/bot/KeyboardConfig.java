@@ -18,12 +18,12 @@ public class KeyboardConfig {
         List<KeyboardRow> keyboardRowList = new ArrayList<>();
 
         KeyboardRow firstRow = new KeyboardRow();
-        firstRow.add(new KeyboardButton("/news"));
-        firstRow.add(new KeyboardButton("/team_ranking"));
+        firstRow.add(new KeyboardButton(CommandEnum.GET_NEWS_FOR_TODAY.getButtonName()));
+        firstRow.add(new KeyboardButton(CommandEnum.GET_TEAMS_RANKING.getButtonName()));
 
         KeyboardRow secondRow = new KeyboardRow();
-        secondRow.add(new KeyboardButton("/matches"));
-        secondRow.add(new KeyboardButton("/results"));
+        secondRow.add(new KeyboardButton(CommandEnum.GET_MATCHES_FOR_TODAY.getButtonName()));
+        secondRow.add(new KeyboardButton(CommandEnum.GET_RESULTS_FOR_TODAY.getButtonName()));
 
         keyboardRowList.add(firstRow);
         keyboardRowList.add(secondRow);
